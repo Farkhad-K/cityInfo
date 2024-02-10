@@ -3,6 +3,7 @@ using CityInfo.API.Services;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Net;
 using System.Text;
@@ -56,6 +57,31 @@ namespace CityInfo.API
 
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+			builder.Services.AddAuthentication("Bearer")
+				.AddJwtBearer(options =>
+				{
+					options.TokenValidationParameters = new()
+					{
+						ValidateIssuer = true,
+						ValidateAudience = true,
+						ValidateIssuerSigningKey = true,
+						ValidIssuer = builder.Configuration["Authentication:Issuer"],
+						ValidAudience = builder.Configuration["Authentication:Audience"],
+						IssuerSigningKey = new SymmetricSecurityKey(
+							Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]))
+					};
+				});
+
+			// For this code watch 8th video of the section 9
+			builder.Services.AddAuthorization(options =>
+			{
+				options.AddPolicy("MustBeFromAntwerp", policy =>
+				{
+					policy.RequireAuthenticatedUser();
+					policy.RequireClaim("city", "Antwerp"); ;
+				});
+			});
+
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
@@ -68,6 +94,8 @@ namespace CityInfo.API
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
+
+			app.UseAuthentication();
 
 			app.UseAuthorization();
 
