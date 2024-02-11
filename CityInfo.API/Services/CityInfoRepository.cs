@@ -93,7 +93,7 @@ namespace CityInfo.API.Services
 			return await _context.Cities.AnyAsync(c => c.Id == cityId);
 		}
 
-		public async Task<PointOfInterest> GetPointOfInterestForCityAsync(int cityId, int pointOfInterestId)
+		public async Task<PointOfInterest?> GetPointOfInterestForCityAsync(int cityId, int pointOfInterestId)
 		{
 			//return await _context.PointsOfInterests.Where(p => p.CityId == cityId && p.Id == pointOfInterestId).FirstOrDefaultAsync();
 			return await _context.PointsOfInterests

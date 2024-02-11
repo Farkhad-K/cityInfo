@@ -1,0 +1,11 @@
+2024-02-11 21:13:56.532 +05:00 [INF] Entity Framework Core 6.0.26 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.26' with options: None
+2024-02-11 21:13:56.563 +05:00 [DBG] Opening connection to database 'main' on server 'City.db'.
+2024-02-11 21:13:56.581 +05:00 [DBG] Opened connection to database 'main' on server 'D:\Projects\VS_22_Projects\Kevin_Dockx\CityInfo\cityinfo.api\City.db'.
+2024-02-11 21:13:56.588 +05:00 [DBG] Opening connection to database 'main' on server 'City.db'.
+2024-02-11 21:13:56.596 +05:00 [DBG] Opened connection to database 'main' on server 'D:\Projects\VS_22_Projects\Kevin_Dockx\CityInfo\cityinfo.api\City.db'.
+2024-02-11 21:13:56.602 +05:00 [DBG] Closing connection to database 'main' on server 'D:\Projects\VS_22_Projects\Kevin_Dockx\CityInfo\cityinfo.api\City.db'.
+2024-02-11 21:13:56.610 +05:00 [DBG] Closed connection to database 'main' on server 'City.db'.
+2024-02-11 21:13:56.616 +05:00 [DBG] 'CityInfoContext' disposed.
+2024-02-11 21:14:54.368 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-02-11 21:14:54.927 +05:00 [INF] Entity Framework Core 6.0.26 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.26' with options: None
+2024-02-11 21:14:54.958 +05:00 [DBG] 'CityInfoContext' disposed.

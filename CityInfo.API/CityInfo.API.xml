@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CityInfo.API</name>
+    </assembly>
+    <members>
+        <member name="M:CityInfo.API.Controllers.CitiesController.GetCity(System.Int32,System.Boolean)">
+            <summary>
+            Get city by id
+            </summary>
+            <param name="id">The id for the city to get</param>
+            <param name="includePointsOfInterest">Whether or not to include the points of interest</param>
+            <returns>An IActionResult</returns>
+            <response code="200">Returns the requested city</response>
+            <response code="400">Returns badass request</response>
+        </member>
+        <member name="T:CityInfo.API.Models.CityWithoutPointsOfInterestDTO">
+            <summary>
+            A DTO for a city without points of interest
+            </summary>
+        </member>
+        <member name="P:CityInfo.API.Models.CityWithoutPointsOfInterestDTO.Id">
+            <summary>
+            The id of the city
+            </summary>
+        </member>
+        <member name="P:CityInfo.API.Models.CityWithoutPointsOfInterestDTO.Name">
+            <summary>
+            The name of the city
+            </summary>
+        </member>
+        <member name="P:CityInfo.API.Models.CityWithoutPointsOfInterestDTO.Description">
+            <summary>
+            The description of the city
+            </summary>
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.GetCitiesAsync(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This method Filters and Searches through Cities based on the "name" and "searchQuery" parameters.
+            </summary>
+            <param name="name">This parameter applies for Filtering</param>
+            <param name="searchQuery">This parameter applies for Searching</param>
+            <returns>Based on the request returns Filtered collection</returns>
+            <returns>Based on the request Searches for stirng which is located in the "searchQuery"</returns>
+            <example>
+            /api/cities?name=Antwerp this is how Filtering is appied
+            </example>
+            <example>
+            /api/cities?searchQuery=the this is how Searching is appied
+            </example>
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.CityExistsAsync(System.Int32)">
+            <summary>
+            Checks if the city exists
+            </summary>
+            <param name="cityId"></param>
+            <returns>Returns true if city exists</returns>
+        </member>
+    </members>
+</doc>

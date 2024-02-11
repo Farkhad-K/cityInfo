@@ -10,7 +10,8 @@ namespace CityInfo.API.Controllers
 {
 	[ApiController]
 	[Authorize(Policy = "MustBeFromAntwerp")]
-	[Route("api/cities/{cityId}/pointsofinterest")]
+	[ApiVersion("2.0")]
+	[Route("api/v{version:apiVersion}/cities/{cityId}/pointsofinterest")]
 	public class PointsOfInterestsController : ControllerBase
 	{
 		private readonly ILogger<PointsOfInterestsController> _logger;
@@ -36,7 +37,7 @@ namespace CityInfo.API.Controllers
 		{
 			// This returns a name of the city from Authenticatoion controller
 			// ValidateUserCredentials() which was specified in this method
-			var cityName = User.Claims.FirstOrDefault(c => c.Type == "city")?.Value;
+			//var cityName = User.Claims.FirstOrDefault(c => c.Type == "city")?.Value;
 
 			// This line of code checks if the city from previouse code matches with the city from which was Authentication
 			// example: if the Authentication was form Antwerp the response will be only related to the Antwerp

@@ -9,7 +9,8 @@ namespace CityInfo.API.Profiles
             CreateMap<Entities.City, Models.CityWithoutPointsOfInterestDTO>()
                 //this adds nullabel properties to mapper
                 .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Descripion));
-            CreateMap<Entities.City, Models.CityDto>();
-        }
+            CreateMap<Entities.City, Models.CityDto>()
+				.ForMember(d => d.Description, opt => opt.MapFrom(src => src.Descripion));
+		}
     }
 }
