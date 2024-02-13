@@ -1,5 +1,6 @@
 obj
-bin 
-Farkhodbek_Kamolov-CV.pdf
+bin
 appsettings.json
 *.db
+.vs/slnx.sqlite
+Dokerfile
